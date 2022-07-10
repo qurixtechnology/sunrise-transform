@@ -19,6 +19,7 @@ jobs:
 
 
   deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     uses: qurixtechnology/base-workflows/.github/workflows/deploy_python_azure_function.yml@main
     needs: build
     with:
@@ -28,5 +29,4 @@ jobs:
       environment: dev
       artifact_name: "python-app-transform-${{ github.sha }}"
     secrets: inherit
-    if: github.event.pull_request.merged == 'true'
-
+  
