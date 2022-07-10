@@ -29,4 +29,3 @@ jobs:
       environment: dev
       artifact_name: "python-app-transform-${{ github.sha }}"
     secrets: inherit
-  
